@@ -1,0 +1,20 @@
+use_nerdfont = true
+notify = true
+
+[theme]
+background = "#000000"
+primary = "#FFFFFF"
+secondary = "#E9E9E9"
+title = "#FFFFFF"
+playing = "#7BBDFF"
+playing_selected = "#FF0053"
+playing_bg = "#181818"
+highlight = "#000000"
+highlight_bg = "#7BBDFF"
+error = "#FFE4E4"
+error_bg = "#D84C4C"
+statusbar = "#FFFFFF"
+statusbar_progress = "#7BBDFF"
+statusbar_bg = "#000000"
+cmdline = "#CBFFDE"
+cmdline_bg = "#000000"
