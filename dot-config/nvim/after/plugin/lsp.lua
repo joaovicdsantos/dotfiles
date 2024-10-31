@@ -52,7 +52,7 @@ lsp_zero.format_on_save({
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua", "c", "python", "go", "rust" },
+		["null-ls"] = { "javascript", "typescript", "lua", "c", "python", "go" },
 	},
 })
 
@@ -73,7 +73,7 @@ mason_lspconfig.setup({
 	},
 })
 mason_null_ls.setup({
-	ensure_installed = { "clangd", "stylua" },
+	ensure_installed = { "clangd", "stylua", "rustfmt" },
 	automatic_installation = false,
 	handlers = {},
 })
