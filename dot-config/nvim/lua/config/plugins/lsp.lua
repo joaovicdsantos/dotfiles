@@ -1,5 +1,5 @@
 return {
-	-- Lsp
+	-- lsp
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
@@ -8,10 +8,7 @@ return {
 	},
 	{ "neovim/nvim-lspconfig" },
 
-	-- null-ls
-	{ "nvimtools/none-ls.nvim" },
-
-	-- Mason
+	-- mason
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{
@@ -19,7 +16,10 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 	},
 
-	-- CMP
+	-- null-ls
+	{ "nvimtools/none-ls.nvim" },
+
+	-- cmp
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
@@ -27,12 +27,12 @@ return {
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lua" },
 
-	-- Snippets
+	-- snippets
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" },
 	{ "onsails/lspkind.nvim" },
 
-	-- Codeium
+	-- codeium
 	{
 		"Exafunction/codeium.nvim",
 		dependencies = {
@@ -41,7 +41,7 @@ return {
 		},
 	},
 
-	-- Trouble
+	-- trouble
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
