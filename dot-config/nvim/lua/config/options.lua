@@ -19,7 +19,7 @@ local options = {
 	splitright = true,
 
 	termguicolors = true,
-  background = "dark",
+	background = "dark",
 	hidden = true,
 	signcolumn = "yes",
 	showmode = false,

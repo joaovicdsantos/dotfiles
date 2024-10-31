@@ -1,4 +1,4 @@
 return {
-  'nanozuki/tabby.nvim',
-  dependencies = 'nvim-tree/nvim-web-devicons',
+	"nanozuki/tabby.nvim",
+	dependencies = "nvim-tree/nvim-web-devicons",
 }

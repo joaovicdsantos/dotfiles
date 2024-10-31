@@ -11,7 +11,7 @@ require("nvim-treesitter.configs").setup({
 		"vim",
 		"vimdoc",
 		"query",
-    "templ"
+		"templ",
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -33,7 +33,7 @@ require("nvim-treesitter.configs").setup({
 })
 
 vim.filetype.add({
-  extension = {
-    templ = "templ"
-  }
+	extension = {
+		templ = "templ",
+	},
 })

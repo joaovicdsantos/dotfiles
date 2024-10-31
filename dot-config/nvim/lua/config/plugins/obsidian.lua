@@ -10,11 +10,11 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				path = "~/Documents/Obsidian/Personal",
+				path = "~/Documents/Obsidian/",
 			},
 		},
-    ui = {
-      enable = false
-    }
+		ui = {
+			enable = false,
+		},
 	},
 }
