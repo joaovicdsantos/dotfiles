@@ -85,10 +85,6 @@ export PATH=$PATH:~/.local/share/DrMemory/bin64
 # wal
 # (cat ~/.cache/wal/sequences &)
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # Pyenv
 # export PYENV_ROOT="$HOME/.pyenv"
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -103,3 +99,15 @@ eval "$(starship init zsh)"
 export PF_INFO="ascii title os host kernel uptime memory editor shell"
 pfetch
 
+
+# pnpm
+export PNPM_HOME="/home/buda/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/buda/.sdkman"
+[[ -s "/home/buda/.sdkman/bin/sdkman-init.sh" ]] && source "/home/buda/.sdkman/bin/sdkman-init.sh"
