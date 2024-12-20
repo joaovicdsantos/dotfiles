@@ -6,23 +6,23 @@ shape = "Beam"
 size = 12
 
 [font.bold]
-family = "CaskaydiaCove Nerd Font"
+family = "Hack Nerd Font"
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font"
+family = "Hack Nerd Font"
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font"
+family = "Hack Nerd Font"
 
 [window]
 dynamic_padding = true
-opacity = 0.85
+opacity = 1
 
 [colors]
 # transparent_background_colors = true
 
 [window.padding]
-x = 0
+x = 1
 y = 0
 
 [env]

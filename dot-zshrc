@@ -26,7 +26,6 @@ plugins=(
     colorize
     zsh-autosuggestions
     zsh-syntax-highlighting
-    exercism
     dotenv
 )
 
