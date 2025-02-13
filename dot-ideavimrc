@@ -1,0 +1,129 @@
+let mapleader=" "
+
+set clipboard+=unnamedplus
+
+""" Common settings -------------------------
+set so=5
+set incsearch
+set nu
+set relativenumber
+set showcmd
+set showmode
+
+""" Idea specific settings ------------------
+set ideajoin
+set idearefactormode=visual
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set highlightedyank
+set NERDTree
+set commentary
+set sneak
+set peekaboo
+set easymotion
+set functiontextobj
+set argtextobj
+set textobj-entire
+set ReplaceWithRegister
+set quickscope
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Mappings --------------------------------
+
+" Tab navigation
+nnoremap <A-[> :tabprev<CR>
+nnoremap <A-]> :tabnext<CR>
+
+" Formatting
+map vrr <Action>(ReformatCode)
+map vrt <Action>(Tailwind Formatter)
+
+" Navigation
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+map <leader>ff <action>(GotoFile)
+map <leader>s <Action>(SelectInProjectView)
+map <leader>a <Action>(Annotate)
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Run & Debug
+map <leader>cg <Action>(ChooseRunConfiguration)
+map <leader>dg <Action>(ChooseDebugConfiguration)
+map <leader>1 <Action>(Run)
+map <leader>0 <Action>(Stop)
+map <leader>2 <Action>(Debug)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>o <Action>(FileStructurePopup)
+
+" Mode
+map <leader>z <Action>(ToggleDistractionFreeMode)
+
+" Refactoring
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Create file
+map <leader>ns <Action>(NewScratchFile)
+
+" Code Navigation
+map g[ <Action>(GotoNextError)
+map g] <Action>(GotoPreviousError)
+map <leader>k <Action>(JumpToLastChange)
+map <leader>K <Action>(JumpToNextChange)
+map gn <Action>(GotoNextElementUnderCaretUsage)
+map gN <Action>(GotoPrevElementUnderCaretUsage)
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gb <Action>(Back)
+nmap <leader>gf <Action>(Forward)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
+
+""" set the various handlers ----------------
+sethandler <C-a> a:vim
+sethandler <C-b> a:vim
+sethandler <C-c> a:vim
+sethandler <C-d> a:vim
+sethandler <C-e> a:vim
+sethandler <C-f> a:vim
+sethandler <C-g> a:vim
+sethandler <C-h> a:vim
+sethandler <C-i> a:vim
+sethandler <C-j> a:ide
+sethandler <C-k> a:ide
+sethandler <C-l> a:vim
+sethandler <C-m> a:vim
+sethandler <C-n> a:vim
+sethandler <C-o> a:vim
+sethandler <C-p> a:vim
+sethandler <C-q> a:vim
+sethandler <C-r> a:vim
+sethandler <C-s> a:vim
+sethandler <C-t> a:vim
+sethandler <C-u> a:vim
+sethandler <C-v> a:vim
+sethandler <C-v> a:vim
+sethandler <C-w> a:vim
+sethandler <C-x> a:vim
+sethandler <C-y> a:vim
+sethandler <C-z> a:vim
+
+vnoremap p "_dP`]
+nnoremap p p`]
