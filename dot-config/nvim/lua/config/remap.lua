@@ -1,6 +1,10 @@
 -- Leader Key
 vim.g.mapleader = " "
 
+-- Save and Quit Easy
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+vim.keymap.set("n", "<leader>q", ":q<CR>")
+
 -- Key Bindings
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 

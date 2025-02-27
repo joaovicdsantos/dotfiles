@@ -71,8 +71,9 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+# Sdkman
 export SDKMAN_DIR="/home/buda/.sdkman"
 [[ -s "/home/buda/.sdkman/bin/sdkman-init.sh" ]] && source "/home/buda/.sdkman/bin/sdkman-init.sh"
-
-eval "$(starship init zsh)"

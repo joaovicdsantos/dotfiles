@@ -93,6 +93,7 @@ nmap <leader>gf <Action>(Forward)
 
 " Close active tab
 map <leader>q <action>(CloseContent)
+map <leader>w <action>(SaveAll)
 
 map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
 
