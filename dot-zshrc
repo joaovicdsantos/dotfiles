@@ -77,3 +77,17 @@ eval "$(zoxide init zsh)"
 # Sdkman
 export SDKMAN_DIR="/home/buda/.sdkman"
 [[ -s "/home/buda/.sdkman/bin/sdkman-init.sh" ]] && source "/home/buda/.sdkman/bin/sdkman-init.sh"
+
+# Jetbrains Toolbox
+export PATH=$PATH:/home/buda/.local/share/JetBrains/Toolbox/scripts
+
+# Flutter SDK
+export PATH=$PATH:$HOME/development/flutter/bin
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+# Android SDK
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/plataform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin

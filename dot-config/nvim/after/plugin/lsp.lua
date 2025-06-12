@@ -154,7 +154,7 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<C-y>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	}),
 })
@@ -175,3 +175,5 @@ keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+
+require("lspconfig").dartls.setup({})

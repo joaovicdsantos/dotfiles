@@ -47,4 +47,9 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
 	},
+
+	-- Dart
+	{
+		"dart-lang/dart-vim-plugin",
+	},
 }
