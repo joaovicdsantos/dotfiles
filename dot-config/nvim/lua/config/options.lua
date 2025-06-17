@@ -4,8 +4,9 @@ local options = {
 	tabstop = 2,
 	shiftwidth = 2,
 	expandtab = true,
-	showtabline = 0,
+	showtabline = 2,
 	showmatch = true,
+	laststatus = 3,
 
 	number = true,
 	relativenumber = true,
@@ -41,7 +42,7 @@ local options = {
 
 	title = true,
 	titlestring = "Neovim - %t",
-	guifont = "CaskaydiaCove Nerd Font",
+	guifont = "JetBrainsMono Nerd Font:h14",
 	clipboard = "unnamedplus",
 }
 

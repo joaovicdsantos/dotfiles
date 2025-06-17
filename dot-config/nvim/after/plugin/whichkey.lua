@@ -24,5 +24,4 @@ wk.add({
 	{ "<leader>vws", desc = "Symbols" },
 	{ "<leader>w", group = "Window" },
 	{ "<leader>wj", desc = "Jump to" },
-	{ "<leader>x", desc = "Now u can run!" },
 })
