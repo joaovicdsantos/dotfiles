@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup({
 		"vimdoc",
 		"query",
 		"templ",
+		"dart",
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)

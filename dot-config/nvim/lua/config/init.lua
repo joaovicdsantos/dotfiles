@@ -7,3 +7,6 @@ require("config.lazy")
 require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.cmd([[ set shell=/bin/zsh ]])
+
+-- Ignore deprecated messages
+vim.deprecate = function() end

@@ -52,11 +52,12 @@ lsp_zero.format_on_save({
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua", "c", "python", "go" },
+		["null-ls"] = { "javascript", "typescript", "lua", "c", "python", "go", "dart" },
 	},
 })
 
 -- Mason
+--
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local mason_null_ls = require("mason-null-ls")
@@ -87,6 +88,7 @@ null_ls.setup({
 		null_opts.on_attach(client, bufnr)
 	end,
 	sources = {
+		null_ls.builtins.formatting.dart_format,
 		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.completion.luasnip,
 		null_ls.builtins.diagnostics.commitlint,
@@ -101,9 +103,15 @@ local lspkind = require("lspkind")
 cmp.setup({
 	sources = {
 		{ name = "path" },
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
+		{
+			name = "nvim_lsp",
+			-- Filter LSP Snippets
+			entry_filter = function(entry)
+				return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+			end,
+		},
 		{ name = "luasnip", keyword_length = 2 },
+		{ name = "nvim_lua" },
 		{ name = "codeium" },
 		{ name = "buffer", keyword_length = 3 },
 		{ name = "nvim_lsp_signature_help" },
@@ -154,24 +162,39 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<C-y>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	}),
 })
 
 -- Codeium
-require("codeium").setup({
-	virtual_text = {
-		enabled = true,
-		manual = false,
-	},
-})
+-- require("codeium").setup({
+-- 	virtual_text = {
+-- 		enabled = true,
+-- 		manual = false,
+-- 	},
+-- })
 
 -- Snippets
 require("luasnip.loaders.from_vscode").lazy_load()
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+local ls = require("luasnip")
+vim.keymap.set({ "i" }, "<C-E>", function()
+	ls.expand()
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-J>", function()
+	ls.jump(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-K>", function()
+	ls.jump(-1)
+end, { silent = true })
+
+-- General LSPs
+vim.lsp.enable("dartls")
+
+vim.lsp.config["kotlin-ls"] = {
+	cmd = { "kotlin-ls", "--stdio" },
+	single_file_support = true,
+	filetypes = { "kotlin" },
+	root_markers = { "build.gradle", "build.gradle.kts", "pom.xml" },
+}
+vim.lsp.enable("kotlin-ls")
