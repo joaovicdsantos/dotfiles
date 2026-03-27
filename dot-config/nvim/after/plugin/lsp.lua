@@ -39,6 +39,13 @@ lsp_zero.on_attach(function(client, bufnr)
 	end, opts)
 end)
 
+vim.diagnostic.config({
+	-- virtual_lines = {
+	-- 	current_line = true,
+	-- },
+	virtual_text = true,
+})
+
 lsp_zero.set_sign_icons({
 	error = "✘",
 	warn = "▲",
@@ -46,15 +53,15 @@ lsp_zero.set_sign_icons({
 	info = "»",
 })
 
-lsp_zero.format_on_save({
-	format_opts = {
-		async = false,
-		timeout_ms = 10000,
-	},
-	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua", "c", "python", "go", "dart" },
-	},
-})
+-- lsp_zero.format_on_save({
+-- 	format_opts = {
+-- 		async = true,
+-- 		timeout_ms = 10000,
+-- 	},
+-- 	servers = {
+-- 		["null-ls"] = { "javascript", "typescript", "lua", "c", "go", "dart", "kotlin" },
+-- 	},
+-- })
 
 -- Mason
 --
@@ -92,6 +99,9 @@ null_ls.setup({
 		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.completion.luasnip,
 		null_ls.builtins.diagnostics.commitlint,
+		null_ls.builtins.diagnostics.ktlint,
+		null_ls.builtins.formatting.ktlint,
+		require("neotest").diagnostic,
 	},
 })
 
@@ -167,14 +177,6 @@ cmp.setup({
 	}),
 })
 
--- Codeium
--- require("codeium").setup({
--- 	virtual_text = {
--- 		enabled = true,
--- 		manual = false,
--- 	},
--- })
-
 -- Snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 local ls = require("luasnip")
@@ -191,10 +193,40 @@ end, { silent = true })
 -- General LSPs
 vim.lsp.enable("dartls")
 
-vim.lsp.config["kotlin-ls"] = {
-	cmd = { "kotlin-ls", "--stdio" },
-	single_file_support = true,
-	filetypes = { "kotlin" },
-	root_markers = { "build.gradle", "build.gradle.kts", "pom.xml" },
-}
-vim.lsp.enable("kotlin-ls")
+vim.lsp.config("pyright", {
+	capabilities = capabilities,
+	settings = {
+		pyright = {
+			-- Using Ruff's import organizer
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				-- Ignore all files for analysis to exclusively use Ruff for linting
+				ignore = { "*" },
+			},
+		},
+	},
+})
+
+vim.lsp.enable("ruff")
+
+require("conform").setup({
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback",
+	},
+	formatters_by_ft = {
+		lua = { "stylua" },
+		python = { "ruff_lint", "ruff_format", "ruff_organize_imports" },
+		rust = { "rustfmt", lsp_format = "fallback" },
+		javascript = { "prettierd", "prettier", stop_after_first = true },
+	},
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
+})
