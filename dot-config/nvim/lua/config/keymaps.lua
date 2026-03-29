@@ -1,5 +1,6 @@
 -- Leader Key
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Save and Quit Easy
 vim.keymap.set("n", "<leader>w", ":w<CR>")

@@ -1,7 +1,8 @@
 return {
-	"CRAG666/code_runner.nvim",
-	config = function()
-		require("code_runner").setup({
+	{
+		"CRAG666/code_runner.nvim",
+		cmd = { "RunCode", "RunFile", "RunProject", "RunClose" },
+		opts = {
 			filetype = {
 				java = {
 					"cd $dir &&",
@@ -17,7 +18,7 @@ return {
 				},
 				dart = "dart run $fileName",
 				c = function()
-					c_base = {
+					local c_base = {
 						"cd $dir &&",
 						"gcc $fileName -o",
 						"/tmp/$fileNameWithoutExt",
@@ -28,11 +29,10 @@ return {
 					}
 					vim.ui.input({ prompt = "Add more args:" }, function(input)
 						c_base[4] = input
-						vim.print(vim.tbl_extend("force", c_base, c_exec))
 						require("code_runner.commands").run_from_fn(vim.list_extend(c_base, c_exec))
 					end)
 				end,
 			},
-		})
-	end,
+		},
+	},
 }

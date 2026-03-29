@@ -44,8 +44,18 @@ local options = {
 	titlestring = "Neovim - %t",
 	guifont = "JetBrainsMono Nerd Font:h14",
 	clipboard = "unnamedplus",
+
+	completeopt = "menu,menuone,noselect",
 }
 
 for option, value in pairs(options) do
 	vim.opt[option] = value
 end
+
+vim.diagnostic.config({
+	virtual_text = { prefix = "●" },
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+})
