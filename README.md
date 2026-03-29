@@ -1,22 +1,12 @@
 # Dotfiles
-![my-desktop](https://github.com/user-attachments/assets/cd6a08f3-8bdb-44bf-a485-b4eb65bd8fa3)
-
-Neovim, Alacritty, i3, i3Status, Rofi, ncspot, Dunst, Picom, Starship... Only what is necessary.
+<img width="2560" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef810729-4a13-4c03-ad9c-93b9d34f1236" />
 
 ## Requirements
+- Tmux
 - Neovim
-- Alacritty
-- Zsh
-- Starship theme
-- i3
-- i3status
-- Rofi
-- ncspot
-- Dunst
-- Picom
-- Font: CaskaydiaCove Nerd Font (CascadiaCode)
+- Font: JetBrainsMono Nerd Font
 
 ## Usage
 1. Clone the repository
 2. Run `stow --dotfiles .`
-3. Make your changes: remove i3 execs (or even configure xrandr), add Zsh plugins, configure your neovim mappings, etc. Be happy.
+3. Make your own changes.
