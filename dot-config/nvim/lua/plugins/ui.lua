@@ -51,7 +51,7 @@ return {
 				end
 				map("]g", gs.next_hunk, "Next Hunk")
 				map("[g", gs.prev_hunk, "Prev Hunk")
-				map("<leader>gb", gs.blame_line, "Blame Line")
+				map("gt", gs.blame_line, "Blame Line")
 				map("<leader>gp", gs.preview_hunk, "Preview Hunk")
 				map("<leader>gr", gs.reset_hunk, "Reset Hunk")
 			end,
@@ -63,19 +63,6 @@ return {
 		"folke/todo-comments.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {},
-	},
-
-	-- Diagnostics panel
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		cmd = "Trouble",
-		keys = {
-			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
-			{ "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-			{ "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
-		},
 		opts = {},
 	},
 

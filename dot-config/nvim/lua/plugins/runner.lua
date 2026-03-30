@@ -34,5 +34,35 @@ return {
 				end,
 			},
 		},
+		keys = {
+			{
+				"<leader>rr",
+				function()
+					require("code_runner").run_code()
+				end,
+				desc = "Run Code",
+			},
+			{
+				"<leader>rf",
+				function()
+					require("code_runner").run_filetype()
+				end,
+				desc = "Run File",
+			},
+			{
+				"<leader>rp",
+				function()
+					require("code_runner").run_project()
+				end,
+				desc = "Run Project",
+			},
+			{
+				"<leader>rc",
+				function()
+					require("code_runner").run_close()
+				end,
+				desc = "Close Runner",
+			},
+		},
 	},
 }

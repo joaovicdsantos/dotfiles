@@ -3,8 +3,28 @@ return {
 	{
 		"folke/snacks.nvim",
 		opts = {
-			picker = {},
-			explorer = {},
+			picker = {
+				sources = {
+					explorer = {
+						win = {
+							input = {
+								keys = {
+									["<Esc>"] = { "", mode = "n" },
+								},
+							},
+							list = {
+								keys = {
+									["<Esc>"] = { "", mode = "n" },
+								},
+							},
+						},
+					},
+				},
+			},
+			explorer = {
+				replace_netrw = true,
+				trash = true,
+			},
 		},
 		keys = {
 			-- Top Pickers & Explorer
@@ -46,9 +66,24 @@ return {
 			{
 				"<leader>e",
 				function()
-					Snacks.explorer()
+					local explorer_win = nil
+
+					for _, win in ipairs(vim.api.nvim_list_wins()) do
+						local buf = vim.api.nvim_win_get_buf(win)
+						local ft = vim.bo[buf].filetype
+						if ft == "snacks_picker_list" then
+							explorer_win = win
+							break
+						end
+					end
+
+					if vim.api.nvim_get_current_win() ~= explorer_win and explorer_win then
+						vim.api.nvim_set_current_win(explorer_win)
+					else
+						Snacks.explorer()
+					end
 				end,
-				desc = "File Explorer",
+				desc = "Snacks File Explorer",
 			},
 			-- find
 			{
