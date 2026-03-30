@@ -20,11 +20,18 @@ return {
 					},
 				},
 				documentation = { auto_show = false },
+				ghost_text = { enabled = true },
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
 			fuzzy = { implementation = "prefer_rust_with_warning" },
+			signature = { enabled = true },
 		},
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
 	},
 }
